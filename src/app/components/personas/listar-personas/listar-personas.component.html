@@ -1,0 +1,32 @@
+<h2>Componente Listar Personas Cargado</h2>
+<a routerLink="/personas/agregar" class="btn btn-primary mb-3">Agregar Persona</a>
+
+
+<div class="container mt-4">
+  <h2>Lista de Personas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <td>{{ persona.id }}</td>
+        <td>{{ persona.nombre }}</td>
+        <td>{{ persona.apellido }}</td>
+        <td>{{ persona.edad }}</td>
+        <td>{{ persona.email }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="eliminarPersona(persona.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
