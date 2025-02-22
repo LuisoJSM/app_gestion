@@ -23,7 +23,7 @@
         <td>{{ persona.edad }}</td>
         <td>{{ persona.email }}</td>
         <td>
-          <button class="btn btn-warning btn-sm me-2">Editar</button>
+          <a [routerLink]="['/personas/editar', persona.id]" class="btn btn-warning btn-sm">Editar</a>
           <button class="btn btn-danger btn-sm" (click)="eliminarPersona(persona.id)">Eliminar</button>
         </td>
       </tr>

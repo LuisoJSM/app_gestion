@@ -1,1 +1,28 @@
-<p>editar-persona works!</p>
+<div class="container mt-4">
+  <h2>Editar Persona</h2>
+
+  <form [formGroup]="formularioPersona" (ngSubmit)="guardarCambios()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input type="text" id="nombre" class="form-control" formControlName="nombre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="apellido" class="form-label">Apellido:</label>
+      <input type="text" id="apellido" class="form-control" formControlName="apellido" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="edad" class="form-label">Edad:</label>
+      <input type="number" id="edad" class="form-control" formControlName="edad" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" class="form-control" formControlName="email" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a routerLink="/personas" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>

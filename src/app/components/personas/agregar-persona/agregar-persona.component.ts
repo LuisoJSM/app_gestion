@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // ✅ Importar ReactiveFormsModule
-import { ApiService } from '../../../services/api.service';
+import { ServicioApi } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,7 @@ export class AgregarPersonaComponent {
 
   constructor(
     private fb: FormBuilder,
-    private apiService: ApiService,
+    private apiService: ServicioApi,
     private router: Router
   ) {
     this.personaForm = this.fb.group({
@@ -29,7 +29,7 @@ export class AgregarPersonaComponent {
 
   onSubmit() {
     if (this.personaForm.valid) {
-      this.apiService.addPersona(this.personaForm.value).subscribe(() => {
+      this.apiService.agregarPersona(this.personaForm.value).subscribe(() => {
         alert('Persona agregada exitosamente');
         this.router.navigate(['/personas']); // Redirigir a la lista de personas
       });

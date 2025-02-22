@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '../../../services/api.service';
+import { ServicioApi } from '../../../services/api.service';
 import { RouterModule } from '@angular/router'; // ✅ Importar RouterModule
 
 @Component({
@@ -14,14 +14,14 @@ import { RouterModule } from '@angular/router'; // ✅ Importar RouterModule
 export class ListarPersonasComponent implements OnInit {
   personas: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ServicioApi) {}
 
   ngOnInit() {
     this.obtenerPersonas();
   }
 
   obtenerPersonas() {
-    this.apiService.getPersonas().subscribe(
+    this.apiService.obtenerPersonas().subscribe(
       (data) => {
         this.personas = data;
       },
@@ -37,7 +37,7 @@ export class ListarPersonasComponent implements OnInit {
 
   eliminarPersona(id: number) {
     if (confirm('¿Estás seguro de que deseas eliminar esta persona?')) {
-      this.apiService.deletePersona(id).subscribe(() => {
+      this.apiService.eliminarPersona(id).subscribe(() => {
         alert('Persona eliminada correctamente');
         this.obtenerPersonas(); // ✅ Recargar la lista después de eliminar
       });
