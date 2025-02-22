@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,7 +17,7 @@ export class EditarPersonaComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioApi: ServicioApi,
+    private apiService: ApiService,
     private ruta: ActivatedRoute,
     private navegador: Router
   ) {
@@ -31,14 +31,14 @@ export class EditarPersonaComponent implements OnInit {
 
   ngOnInit() {
     this.idPersona = Number(this.ruta.snapshot.paramMap.get('id')); // ✅Obtengo el id desde la URL
-    this.servicioApi.obtenerPersonaPorId(this.idPersona).subscribe((datos) => {
+    this.apiService.obtenerPersonaPorId(this.idPersona).subscribe((datos) => {
       this.formularioPersona.patchValue(datos); // Relleno con los datos que obtengo
     });
   }
 
   guardarCambios() {
     if (this.formularioPersona.valid) {
-      this.servicioApi.actualizarPersona(this.idPersona, this.formularioPersona.value).subscribe(() => {
+      this.apiService.actualizarPersona(this.idPersona, this.formularioPersona.value).subscribe(() => {
         alert('Persona actualizada correctamente');
         this.navegador.navigate(['/personas']); // Redirigir al listado de personas
       });

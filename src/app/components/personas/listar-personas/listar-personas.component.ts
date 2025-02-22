@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 export class ListarPersonasComponent implements OnInit {
   personas: any[] = [];
 
-  constructor(private apiService: ServicioApi) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.obtenerPersonas();

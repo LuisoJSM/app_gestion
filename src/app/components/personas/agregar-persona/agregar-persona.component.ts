@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // ✅ Importar ReactiveFormsModule
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +15,7 @@ export class AgregarPersonaComponent {
 
   constructor(
     private fb: FormBuilder,
-    private apiService: ServicioApi,
+    private apiService: ApiService,
     private router: Router
   ) {
     this.personaForm = this.fb.group({

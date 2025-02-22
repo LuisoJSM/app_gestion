@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -12,14 +12,14 @@ import { RouterModule } from '@angular/router';
 export class ListarGastosComponent implements OnInit {
   listaGastos: any[] = []; //almaceno los gastos
 
-  constructor(private servicioApi: ServicioApi) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.cargarGastos(); //cargo los gastos cuando se inicia el componente
   }
 
   cargarGastos() {
-    this.servicioApi.obtenerGastos().subscribe(
+    this.apiService.obtenerGastos().subscribe(
       (gastos) => {
         this.listaGastos = gastos; // meto los gsatos en la lista
       },
@@ -31,7 +31,7 @@ export class ListarGastosComponent implements OnInit {
 
   eliminarGasto(id: number) {
     if (confirm('¿Estás seguro de que quieres eliminar este gasto?')) {
-      this.servicioApi.eliminarGasto(id).subscribe(() => {
+      this.apiService.eliminarGasto(id).subscribe(() => {
         this.listaGastos = this.listaGastos.filter((gasto) => gasto.id !== id); //elimino los gastos de la lista
 
       });

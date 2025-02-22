@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 export class ListarIngresosComponent implements OnInit {
   listaIngresos: any[] = [];
 
-  constructor(private servicioApi: ServicioApi) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.cargarIngresos();
@@ -21,7 +21,7 @@ export class ListarIngresosComponent implements OnInit {
 
 
   cargarIngresos() {
-    this.servicioApi.obtenerIngresos().subscribe(
+    this.apiService.obtenerIngresos().subscribe(
       (ingresos) => {
         this.listaIngresos = ingresos;
       },
@@ -33,7 +33,7 @@ export class ListarIngresosComponent implements OnInit {
 
   eliminarIngreso(id: number) {
     if (confirm('¿Estás seguro de que quieres eliminar este ingreso?')) {
-      this.servicioApi.eliminarIngreso(id).subscribe(() => {
+      this.apiService.eliminarIngreso(id).subscribe(() => {
         this.listaIngresos = this.listaIngresos.filter((ingreso) => ingreso.id !== id);
       });
     }

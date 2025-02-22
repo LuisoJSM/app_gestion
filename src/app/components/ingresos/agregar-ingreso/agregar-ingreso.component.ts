@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,7 @@ export class AgregarIngresoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioApi: ServicioApi,
+    private apiService: ApiService,
     private navegador: Router
   ) {
     this.formularioIngreso = this.fb.group({
@@ -32,7 +32,7 @@ export class AgregarIngresoComponent implements OnInit {
   }
 
   cargarPersonas() {
-    this.servicioApi.obtenerPersonas().subscribe(
+    this.apiService.obtenerPersonas().subscribe(
       (personas) => {
         this.listaPersonas = personas; // ✅ Guardamos las personas en la lista
       },
@@ -44,7 +44,7 @@ export class AgregarIngresoComponent implements OnInit {
 
   guardarIngreso() {
     if (this.formularioIngreso.valid) {
-      this.servicioApi.agregarIngreso(this.formularioIngreso.value).subscribe(() => {
+      this.apiService.agregarIngreso(this.formularioIngreso.value).subscribe(() => {
         alert('Ingreso registrado correctamente');
         this.navegador.navigate(['/ingresos']); // ✅ Redirigir a la lista de ingresos
       });

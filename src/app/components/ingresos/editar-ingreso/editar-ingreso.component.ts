@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServicioApi } from '../../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,7 +17,7 @@ export class EditarIngresoComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private servicioApi: ServicioApi,
+    private apiService: ApiService,
     private ruta: ActivatedRoute,
     private navegador: Router
   ) {
@@ -36,7 +36,7 @@ export class EditarIngresoComponent implements OnInit {
   }
 
   cargarPersonas() {
-    this.servicioApi.obtenerPersonas().subscribe(
+    this.apiService.obtenerPersonas().subscribe(
       (personas) => {
         this.listaPersonas = personas;
       },
@@ -47,7 +47,7 @@ export class EditarIngresoComponent implements OnInit {
   }
 
   cargarIngreso() {
-    this.servicioApi.obtenerIngresoPorId(this.idIngreso).subscribe(
+    this.apiService.obtenerIngresoPorId(this.idIngreso).subscribe(
       (ingreso) => {
         this.formularioIngreso.patchValue(ingreso);
       },
@@ -59,7 +59,7 @@ export class EditarIngresoComponent implements OnInit {
 
   guardarCambios() {
     if (this.formularioIngreso.valid) {
-      this.servicioApi.actualizarIngreso(this.idIngreso, this.formularioIngreso.value).subscribe(() => {
+      this.apiService.actualizarIngreso(this.idIngreso, this.formularioIngreso.value).subscribe(() => {
         alert('Ingreso actualizado correctamente');
         this.navegador.navigate(['/ingresos']);
       });
