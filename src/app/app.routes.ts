@@ -15,6 +15,13 @@ import { AgregarIngresoComponent } from './components/ingresos/agregar-ingreso/a
 import { EditarIngresoComponent } from './components/ingresos/editar-ingreso/editar-ingreso.component';
 
 
+//Componentes de GASTOS
+import { ListarGastosComponent } from './components/gastos/listar-gastos/listar-gastos.component';
+import { AgregarGastoComponent } from './components/gastos/agregar-gasto/agregar-gasto.component';
+import { EditarGastoComponent } from './components/gastos/editar-gasto/editar-gasto.component';
+
+
+
 export const routes: Routes = [
   //Ruta de la Home
   { path: '', component: HomeComponent },
@@ -28,6 +35,14 @@ export const routes: Routes = [
   { path: 'ingresos', component: ListarIngresosComponent },
   { path: 'ingresos/agregar', component: AgregarIngresoComponent },
   { path: 'ingresos/editar/:id', component: EditarIngresoComponent },
+
+
+
+//Rutas de Gastos
+
+  { path: 'gastos', component: ListarGastosComponent },
+  { path: 'gastos/agregar', component: AgregarGastoComponent },
+  { path: 'gastos/editar/:id', component: EditarGastoComponent },
 
 
 ];

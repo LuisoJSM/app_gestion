@@ -65,4 +65,41 @@ eliminarIngreso(id: number): Observable<any> {
 
 
 
+
+
+
+
+  //SERVICIOS DE GASTOS
+
+// Obtener todos los gastos
+obtenerGastos(): Observable<any> {
+  return this.http.get(`${this.urlApi}/gastos`);
+}
+
+//Gasto por ID
+obtenerGastoPorId(id: number): Observable<any> {
+  return this.http.get(`${this.urlApi}/gastos/${id}`);
+}
+
+//Nuevo gasto
+agregarGasto(gasto: any): Observable<any> {
+  return this.http.post(`${this.urlApi}/gastos`, gasto);
+}
+
+//actualizar gasto
+actualizarGasto(id: number, gasto: any): Observable<any> {
+  return this.http.put(`${this.urlApi}/gastos/${id}`, gasto);
+}
+
+// eliminar gasto por id
+eliminarGasto(id: number): Observable<any> {
+  return this.http.delete(`${this.urlApi}/gastos/${id}`);
+}
+
+
+
+
+
+
+
 }

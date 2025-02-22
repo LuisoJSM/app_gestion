@@ -1,1 +1,31 @@
-<p>listar-gastos works!</p>
+<div class="container mt-4">
+  <h2>Lista de Gastos</h2>
+
+  <a routerLink="/gastos/agregar" class="btn btn-success mb-3">➕ Agregar Gasto</a>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Descripción</th>
+        <th>Monto</th>
+        <th>Categoría</th>
+        <th>Persona</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gasto of listaGastos">
+        <td>{{ gasto.id }}</td>
+        <td>{{ gasto.descripcion }}</td>
+        <td>{{ gasto.monto | number:'1.2-2' }}</td>
+        <td>{{ gasto.categoria }}</td>
+        <td>{{ gasto.persona_id }}</td>
+        <td>
+          <a [routerLink]="['/gastos/editar', gasto.id]" class="btn btn-warning btn-sm">✏️ Editar</a>
+          <button class="btn btn-danger btn-sm" (click)="eliminarGasto(gasto.id)">🗑 Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
