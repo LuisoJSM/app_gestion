@@ -1,4 +1,14 @@
 <div class="container mt-4">
+
+
+  <app-botones 
+  titulo="Volver a lista de personas"
+  [botones]="[
+    { texto: 'lista de ingresos', ruta: '/ingresos', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
+
   <h2>Editar Ingreso</h2>
 
   <form [formGroup]="formularioIngreso" (ngSubmit)="guardarCambios()">

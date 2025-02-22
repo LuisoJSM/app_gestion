@@ -3,17 +3,19 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../services/api.service';
 import { RouterModule } from '@angular/router';
+import { BotonesComponent } from '../../botones/botones.component';
+
 
 @Component({
   selector: 'app-listar-personas',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BotonesComponent],
   templateUrl: './listar-personas.component.html',
   styleUrls: ['./listar-personas.component.scss']
 })
 export class ListarPersonasComponent implements OnInit {
   personas: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.obtenerPersonas();

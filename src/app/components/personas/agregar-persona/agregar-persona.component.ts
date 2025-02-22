@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // ✅ Importar ReactiveFormsModule
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BotonesComponent } from '../../botones/botones.component';
+
+
 
 @Component({
   selector: 'app-agregar-persona',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,BotonesComponent],
   templateUrl: './agregar-persona.component.html',
   styleUrls: ['./agregar-persona.component.scss'],
 })

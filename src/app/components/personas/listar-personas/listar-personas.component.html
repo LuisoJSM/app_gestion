@@ -1,5 +1,12 @@
 <h2>Componente Listar Personas Cargado</h2>
-<a routerLink="/personas/agregar" class="btn btn-primary mb-3">Agregar Persona</a>
+
+<app-botones 
+  titulo="Ir a agregar persona"
+  [botones]="[
+    { texto: 'Agregar Persona', ruta: '/personas/agregar', estilo: 'btn-success' }
+  ]">
+</app-botones>
+
 
 
 <div class="container mt-4">

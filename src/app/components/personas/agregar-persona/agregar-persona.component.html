@@ -1,4 +1,13 @@
 <div class="container mt-4">
+
+  <app-botones 
+  titulo="Añade una nueva persona"
+  [botones]="[
+    { texto: 'Lista de personas', ruta: '/personas', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
+
   <h2>Agregar Nueva Persona</h2>
   <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">

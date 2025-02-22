@@ -1,4 +1,11 @@
 <div class="container mt-4">
+  <app-botones 
+  titulo="Volver a lista de gastos"
+  [botones]="[
+    { texto: 'lista de gastos', ruta: '/gastos', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
     <h2>Editar Gasto</h2>
   
     <form [formGroup]="formularioGasto" (ngSubmit)="guardarCambios()">
@@ -27,7 +34,11 @@
       </div>
   
       <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-      <a routerLink="/gastos" class="btn btn-secondary">Cancelar</a>
+      <app-botones 
+       [botones]="[
+     { texto: 'cancelar', ruta: '/gastos', estilo: 'btn-secondary' }
+       ]">
+        </app-botones>
     </form>
   </div>
   

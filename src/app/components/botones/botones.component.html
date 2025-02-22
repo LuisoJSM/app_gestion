@@ -1,0 +1,9 @@
+<div class="container mt-4 text-center">
+    <h3>{{ titulo }}</h3>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a *ngFor="let boton of botones" [routerLink]="boton.ruta" class="btn" [ngClass]="boton.estilo">
+        {{ boton.texto }}
+      </a>
+    </div>
+  </div>
+  

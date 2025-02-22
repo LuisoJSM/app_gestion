@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
+import { BotonesComponent } from '../../botones/botones.component';
+
 
 @Component({
   selector: 'app-editar-ingreso',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, BotonesComponent],
   templateUrl: './editar-ingreso.component.html',
   styleUrls: ['./editar-ingreso.component.scss'],
 })

@@ -2,17 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BotonesComponent } from '../../botones/botones.component';
+
 
 @Component({
   selector: 'app-listar-gastos',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BotonesComponent],
   templateUrl: './listar-gastos.component.html',
   styleUrls: ['./listar-gastos.component.scss'],
 })
 export class ListarGastosComponent implements OnInit {
   listaGastos: any[] = []; //almaceno los gastos
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.cargarGastos(); //cargo los gastos cuando se inicia el componente

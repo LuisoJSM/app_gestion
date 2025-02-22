@@ -1,4 +1,13 @@
 <div class="container mt-4">
+
+  <app-botones 
+  titulo="Volver a Lista de Gastos"
+  [botones]="[
+    { texto: 'Lista de gastos', ruta: '/gastos', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
+
   <h2>Registrar Nuevo Gasto</h2>
 
   <form [formGroup]="formularioGasto" (ngSubmit)="guardarGasto()">

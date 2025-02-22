@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BotonesComponent } from '../../botones/botones.component';
+
 
 @Component({
   selector: 'app-listar-ingresos',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, BotonesComponent],
   templateUrl: './listar-ingresos.component.html',
   styleUrls: ['./listar-ingresos.component.scss'],
 })
@@ -13,7 +15,7 @@ import { RouterModule } from '@angular/router';
 export class ListarIngresosComponent implements OnInit {
   listaIngresos: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.cargarIngresos();

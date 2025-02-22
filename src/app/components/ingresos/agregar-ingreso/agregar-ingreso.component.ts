@@ -3,10 +3,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ApiService } from '../../../services/api.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BotonesComponent } from '../../botones/botones.component';
+
 
 @Component({
   selector: 'app-agregar-ingreso',
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Importamos módulos necesarios
+  imports: [CommonModule, ReactiveFormsModule, BotonesComponent], // ✅ Importamos módulos necesarios
   templateUrl: './agregar-ingreso.component.html',
   styleUrls: ['./agregar-ingreso.component.scss'],
 })

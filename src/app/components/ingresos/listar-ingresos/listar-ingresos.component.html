@@ -1,7 +1,12 @@
 <div class="container mt-4">
   <h2>Lista de Ingresos</h2>
 
-  <a routerLink="/ingresos/agregar" class="btn btn-success mb-3">➕ Agregar Ingreso</a>
+  <app-botones 
+  titulo="Ir a añadir ingresos"
+  [botones]="[
+    { texto: 'Agregar Ingreso', ruta: '/ingresos/agregar', estilo: 'btn-success' }
+  ]">
+</app-botones>
 
   <table class="table table-striped">
     <thead>
