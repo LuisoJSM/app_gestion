@@ -7,13 +7,13 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-editar-persona',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Importamos módulos necesarios
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './editar-persona.component.html',
   styleUrls: ['./editar-persona.component.scss'],
 })
 export class EditarPersonaComponent implements OnInit {
   formularioPersona: FormGroup;
-  idPersona!: number; // ✅ Guardamos el ID de la persona a editar
+  idPersona!: number; // Aquí guardo el id de la persona a ediatr
 
   constructor(
     private fb: FormBuilder,
@@ -30,9 +30,9 @@ export class EditarPersonaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.idPersona = Number(this.ruta.snapshot.paramMap.get('id')); // ✅ Obtener el ID desde la URL
+    this.idPersona = Number(this.ruta.snapshot.paramMap.get('id')); // ✅Obtengo el id desde la URL
     this.servicioApi.obtenerPersonaPorId(this.idPersona).subscribe((datos) => {
-      this.formularioPersona.patchValue(datos); // ✅ Rellenamos el formulario con los datos obtenidos
+      this.formularioPersona.patchValue(datos); // Relleno con los datos que obtengo
     });
   }
 
@@ -40,7 +40,7 @@ export class EditarPersonaComponent implements OnInit {
     if (this.formularioPersona.valid) {
       this.servicioApi.actualizarPersona(this.idPersona, this.formularioPersona.value).subscribe(() => {
         alert('Persona actualizada correctamente');
-        this.navegador.navigate(['/personas']); // ✅ Redirigir a la lista de personas
+        this.navegador.navigate(['/personas']); // Redirigir al listado de personas
       });
     } else {
       alert('Por favor, complete todos los campos correctamente.');

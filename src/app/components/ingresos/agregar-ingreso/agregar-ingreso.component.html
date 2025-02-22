@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>Registrar Nuevo Ingreso</h2>
+
+  <form [formGroup]="formularioIngreso" (ngSubmit)="guardarIngreso()">
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción:</label>
+      <input type="text" id="descripcion" class="form-control" formControlName="descripcion" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="monto" class="form-label">Monto:</label>
+      <input type="number" id="monto" class="form-control" formControlName="monto" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="fuente" class="form-label">Fuente:</label>
+      <input type="text" id="fuente" class="form-control" formControlName="fuente" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="persona" class="form-label">Seleccionar Persona:</label>
+      <select id="persona" class="form-control" formControlName="persona_id" required>
+        <option *ngFor="let persona of listaPersonas" [value]="persona.id">
+          {{ persona.nombre }} {{ persona.apellido }}
+        </option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Ingreso</button>
+    <a routerLink="/ingresos" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>

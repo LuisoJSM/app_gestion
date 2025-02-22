@@ -6,8 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-agregar-persona',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // ✅ Agregar ReactiveFormsModule aquí
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './agregar-persona.component.html',
   styleUrls: ['./agregar-persona.component.scss'],
 })

@@ -2,12 +2,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ServicioApi } from '../../../services/api.service';
-import { RouterModule } from '@angular/router'; // ✅ Importar RouterModule
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listar-personas',
-  standalone: true,
-  imports: [CommonModule, RouterModule], // ✅ Agregar RouterModule aquí
+  imports: [CommonModule, RouterModule],
   templateUrl: './listar-personas.component.html',
   styleUrls: ['./listar-personas.component.scss']
 })
@@ -39,7 +38,7 @@ export class ListarPersonasComponent implements OnInit {
     if (confirm('¿Estás seguro de que deseas eliminar esta persona?')) {
       this.apiService.eliminarPersona(id).subscribe(() => {
         alert('Persona eliminada correctamente');
-        this.obtenerPersonas(); // ✅ Recargar la lista después de eliminar
+        this.obtenerPersonas();
       });
     }
   }
