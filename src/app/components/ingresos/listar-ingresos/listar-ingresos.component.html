@@ -2,13 +2,12 @@
   <h2>Lista de Ingresos</h2>
 
   <app-botones 
-  titulo="Ir a añadir ingresos"
   [botones]="[
-    { texto: 'Agregar Ingreso', ruta: '/ingresos/agregar', estilo: 'btn-success' }
+    { texto: 'Agregar Ingreso',icono: 'bi bi-check-circle-fill',  ruta: '/ingresos/agregar', estilo: 'btn-success' }
   ]">
 </app-botones>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped table-hover table-bordered">
     <thead>
       <tr>
         <th>ID</th>
@@ -23,7 +22,7 @@
       <tr *ngFor="let ingreso of listaIngresos">
         <td>{{ ingreso.id }}</td>
         <td>{{ ingreso.descripcion }}</td>
-        <td>{{ ingreso.monto }}</td>
+        <td>{{ ingreso.monto | currency: 'EUR' }}</td>
         <td>{{ ingreso.fuente }}</td>
         <td>{{ ingreso.persona_id }}</td>
         <td>

@@ -1,12 +1,6 @@
 <div class="container mt-4">
 
 
-  <app-botones 
-  titulo="Volver a lista de personas"
-  [botones]="[
-    { texto: 'lista de ingresos', ruta: '/ingresos', estilo: 'btn-danger' }
-  ]">
-</app-botones>
 
 
   <h2>Editar Ingreso</h2>
@@ -37,6 +31,13 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-    <a routerLink="/ingresos" class="btn btn-secondary">Cancelar</a>
   </form>
+
+  <app-botones 
+  [botones]="[
+    { texto: 'Volver a lista de ingresos',icono: 'bi bi-arrow-return-left', ruta: '/ingresos', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
+
 </div>

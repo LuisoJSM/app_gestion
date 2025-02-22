@@ -51,7 +51,7 @@ export class AgregarGastoComponent implements OnInit {
         this.navegador.navigate(['/gastos']); // ✅ Redirigir a la lista de gastos
       });
     } else {
-      alert('Por favor, complete todos los campos correctamente.');
+      alert('Faltan campos por completar');
     }
   }
 }

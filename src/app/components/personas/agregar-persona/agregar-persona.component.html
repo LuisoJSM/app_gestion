@@ -1,11 +1,5 @@
 <div class="container mt-4">
 
-  <app-botones 
-  titulo="Añade una nueva persona"
-  [botones]="[
-    { texto: 'Lista de personas', ruta: '/personas', estilo: 'btn-danger' }
-  ]">
-</app-botones>
 
 
   <h2>Agregar Nueva Persona</h2>
@@ -30,6 +24,16 @@
       <input type="email" id="email" class="form-control" formControlName="email" required>
     </div>
 
-    <button type="submit" class="btn btn-success">Agregar Persona</button>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-success">Agregar</button>
+    </div>
   </form>
+  <app-botones 
+  [botones]="[
+    { texto: 'Volver a lista de personas',icono: 'bi bi-arrow-return-left', ruta: '/personas', estilo: 'btn-danger' }
+  ]">
+</app-botones>
+
+
+
 </div>

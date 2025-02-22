@@ -1,18 +1,20 @@
-<h2>Componente Listar Personas Cargado</h2>
 
-<app-botones 
-  titulo="Ir a agregar persona"
-  [botones]="[
-    { texto: 'Agregar Persona', ruta: '/personas/agregar', estilo: 'btn-success' }
-  ]">
-</app-botones>
+
 
 
 
 <div class="container mt-4">
   <h2>Lista de Personas</h2>
-  <table class="table table-striped">
-    <thead>
+
+
+  <app-botones 
+  [botones]="[
+    { texto: 'Agregar Persona',icono: 'bi bi-check-circle-fill', ruta: '/personas/agregar', estilo: 'btn-success' }
+  ]">
+</app-botones>
+
+  <table class="table table-dark table-striped table-hover table-bordered">
+    <thead class="thead-dark">
       <tr>
         <th>ID</th>
         <th>Nombre</th>
@@ -31,9 +33,10 @@
         <td>{{ persona.email }}</td>
         <td>
           <a [routerLink]="['/personas/editar', persona.id]" class="btn btn-warning btn-sm">Editar</a>
-          <button class="btn btn-danger btn-sm" (click)="eliminarPersona(persona.id)">Eliminar</button>
+          <button class="btn btn-danger btn-sm m-1" (click)="eliminarPersona(persona.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+

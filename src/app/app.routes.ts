@@ -20,6 +20,8 @@ import { ListarGastosComponent } from './components/gastos/listar-gastos/listar-
 import { AgregarGastoComponent } from './components/gastos/agregar-gasto/agregar-gasto.component';
 import { EditarGastoComponent } from './components/gastos/editar-gasto/editar-gasto.component';
 
+//componente balance financiero
+import { BalanceFinancieroComponent } from './components/balance-financiero/balance-financiero.component';
 
 
 export const routes: Routes = [
@@ -31,18 +33,21 @@ export const routes: Routes = [
   { path: 'personas/editar/:id', component: EditarPersonaComponent },
 
 
-//Rutas de ingresos
+  //Rutas de ingresos
   { path: 'ingresos', component: ListarIngresosComponent },
   { path: 'ingresos/agregar', component: AgregarIngresoComponent },
   { path: 'ingresos/editar/:id', component: EditarIngresoComponent },
 
 
 
-//Rutas de Gastos
+  //Rutas de Gastos
 
   { path: 'gastos', component: ListarGastosComponent },
   { path: 'gastos/agregar', component: AgregarGastoComponent },
   { path: 'gastos/editar/:id', component: EditarGastoComponent },
+
+  //Ruta balance financiero
+  { path: 'balance', component: BalanceFinancieroComponent },
 
 
 ];

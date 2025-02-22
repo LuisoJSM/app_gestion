@@ -32,7 +32,7 @@ export class EditarPersonaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.idPersona = Number(this.ruta.snapshot.paramMap.get('id')); // ✅Obtengo el id desde la URL
+    this.idPersona = Number(this.ruta.snapshot.paramMap.get('id')); //Aqui es donde oibtengo el id
     this.apiService.obtenerPersonaPorId(this.idPersona).subscribe((datos) => {
       this.formularioPersona.patchValue(datos); // Relleno con los datos que obtengo
     });
@@ -41,11 +41,11 @@ export class EditarPersonaComponent implements OnInit {
   guardarCambios() {
     if (this.formularioPersona.valid) {
       this.apiService.actualizarPersona(this.idPersona, this.formularioPersona.value).subscribe(() => {
-        alert('Persona actualizada correctamente');
+        alert('Persona actualizada');
         this.navegador.navigate(['/personas']); // Redirigir al listado de personas
       });
     } else {
-      alert('Por favor, complete todos los campos correctamente.');
+      alert('¡Te faltan campo que completar!');
     }
   }
 }

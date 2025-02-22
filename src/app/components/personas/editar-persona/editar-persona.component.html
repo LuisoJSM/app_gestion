@@ -1,15 +1,6 @@
 <div class="container mt-4">
 
 
-  <app-botones 
-  titulo="Volver a lista de personas"
-  [botones]="[
-    { texto: 'lista de personas', ruta: '/personas', estilo: 'btn-danger' }
-  ]">
-</app-botones>
-
-
-
   <h2>Editar Persona</h2>
 
   <form [formGroup]="formularioPersona" (ngSubmit)="guardarCambios()">
@@ -33,7 +24,15 @@
       <input type="email" id="email" class="form-control" formControlName="email" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-    <a routerLink="/personas" class="btn btn-secondary">Cancelar</a>
-  </form>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+      </form>
 </div>
+
+<app-botones 
+[botones]="[
+  { texto: 'Volver a lista de personas', ruta: '/personas', estilo: 'btn-danger' }
+]">
+</app-botones>
+

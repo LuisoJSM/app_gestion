@@ -1,9 +1,5 @@
-<div class="container mt-4 text-center">
-    <h3>{{ titulo }}</h3>
-    <div class="d-flex justify-content-center gap-3 flex-wrap">
-      <a *ngFor="let boton of botones" [routerLink]="boton.ruta" class="btn" [ngClass]="boton.estilo">
-        {{ boton.texto }}
-      </a>
-    </div>
-  </div>
-  
+<div class="d-flex flex-wrap justify-content-center gap-3">
+  <button *ngFor="let boton of botones" class="btn btn-lg px-4 {{ boton.estilo }}" [routerLink]="boton.ruta">
+    <i class="bi {{ boton.icono }}"></i> {{ boton.texto }}
+  </button>
+</div>

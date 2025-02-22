@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h2>Balance Financiero</h2>
+  
+    <table class="table table-dark table-striped table-hover table-bordered">
+      <thead>
+        <tr class=>
+          <th class="text-center"><i class="bi bi-people m-4"></i>persona</th>
+          <th class="text-center"><i class="bi bi-cash-coin m-4"></i>Ingresos</th>
+          <th class="text-center"><i class="bi bi-cash-coin m-4"></i>Gastos</th>
+          <th class="text-center"><i class="bi bi-cash-coin m-4"></i>Saldo neto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let persona of balanceFinanciero">
+          <td class="text-center">{{ persona.nombre }} {{ persona.apellido }}</td>
+          <td class="text-center">{{ persona.totalIngresos | currency: 'EUR' }}</td>
+          <td class="text-center">{{ persona.totalGastos | currency: 'EUR' }}</td>
+          <td [ngClass]="{ 'text-success': persona.saldo > 0, 'text-danger': persona.saldo < 0, 'text-warning':persona.saldo ==0 }">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+              {{ persona.saldo | currency: 'EUR' }}
+              <i *ngIf="persona.saldo > 0" class="bi bi-emoji-smile-fill"></i>
+              <i *ngIf="persona.saldo < 0" class="bi bi-emoji-frown-fill"></i>
+              <i *ngIf="persona.saldo === 0" class="bi bi-emoji-neutral-fill"></i>
+
+              
+
+            </div>
+          </td>
+          
+          
+        </tr>
+      </tbody>
+    </table>
+  
+    <app-botones 
+    [botones]="[
+      { texto: 'Volver a inicio', ruta: '/', estilo: 'btn-success' }
+    ]">
+  </app-botones>
+  
+
+  </div>
+  

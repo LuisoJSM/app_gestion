@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <i class="bi bi-bank"></i> Aplicación Finanzas
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion"
+      aria-controls="menuNavegacion" aria-expanded="false" aria-label="Mostrar navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menuNavegacion">
+      <ul class="navbar-nav ms-auto">
+        
+        <!-- Balance -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/balance">
+            <i class="bi bi-bar-chart-line"></i> Balance
+          </a>
+        </li>
+
+        <!-- Personas con Desplegable -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuPersonas" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-people"></i> Personas
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="menuPersonas">
+            <li><a class="dropdown-item" routerLink="/personas"><i class="bi bi-list-ul"></i> Listar Personas</a></li>
+            <li><a class="dropdown-item" routerLink="/personas/agregar"><i class="bi bi-person-plus"></i> Agregar Persona</a></li>
+          </ul>
+        </li>
+
+        <!-- Ingresos con Desplegable -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuIngresos" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-cash-coin"></i> Ingresos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="menuIngresos">
+            <li><a class="dropdown-item" routerLink="/ingresos"><i class="bi bi-list-ul"></i> Listar Ingresos</a></li>
+            <li><a class="dropdown-item" routerLink="/ingresos/agregar"><i class="bi bi-plus-circle"></i> Agregar Ingreso</a></li>
+          </ul>
+        </li>
+
+        <!-- Gastos con Desplegable -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="menuGastos" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-cart-x"></i> Gastos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="menuGastos">
+            <li><a class="dropdown-item" routerLink="/gastos"><i class="bi bi-list-ul"></i> Listar Gastos</a></li>
+            <li><a class="dropdown-item" routerLink="/gastos/agregar"><i class="bi bi-plus-circle"></i> Agregar Gasto</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>

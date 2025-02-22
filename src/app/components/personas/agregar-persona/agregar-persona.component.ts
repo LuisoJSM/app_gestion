@@ -9,7 +9,7 @@ import { BotonesComponent } from '../../botones/botones.component';
 
 @Component({
   selector: 'app-agregar-persona',
-  imports: [CommonModule, ReactiveFormsModule,BotonesComponent],
+  imports: [CommonModule, ReactiveFormsModule, BotonesComponent],
   templateUrl: './agregar-persona.component.html',
   styleUrls: ['./agregar-persona.component.scss'],
 })
@@ -32,11 +32,11 @@ export class AgregarPersonaComponent {
   onSubmit() {
     if (this.personaForm.valid) {
       this.apiService.agregarPersona(this.personaForm.value).subscribe(() => {
-        alert('Persona agregada exitosamente');
+        alert('Persona agregada');
         this.router.navigate(['/personas']); // Redirigir a la lista de personas
       });
     } else {
-      alert('Por favor, complete todos los campos correctamente.');
+      alert('¡Te faltan campos por completar!');
     }
   }
 }

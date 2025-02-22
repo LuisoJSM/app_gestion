@@ -2,13 +2,12 @@
   <h2>Lista de Gastos</h2>
 
   <app-botones 
-  titulo="Ir a añadir gastos"
   [botones]="[
-    { texto: 'Agregar Gasto', ruta: '/gastos/agregar', estilo: 'btn-success' }
+    { texto: 'Agregar Gasto',icono: 'bi bi-check-circle-fill', ruta: '/gastos/agregar', estilo: 'btn-success' }
   ]">
 </app-botones>
 
-  <table class="table table-striped">
+  <table class="table table-dark table-striped table-hover table-bordered">
     <thead>
       <tr>
         <th>ID</th>
@@ -23,7 +22,7 @@
       <tr *ngFor="let gasto of listaGastos">
         <td>{{ gasto.id }}</td>
         <td>{{ gasto.descripcion }}</td>
-        <td>{{ gasto.monto | number:'1.2-2' }}</td>
+        <td>{{ gasto.monto | currency: 'EUR' }}</td>
         <td>{{ gasto.categoria }}</td>
         <td>{{ gasto.persona_id }}</td>
         <td>

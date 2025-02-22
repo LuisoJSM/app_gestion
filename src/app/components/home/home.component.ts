@@ -4,23 +4,28 @@ import { BotonesComponent } from '../botones/botones.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [CommonModule, BotonesComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
   botonesPersonas = [
-    { texto: '📋 Listar Personas', ruta: '/personas', estilo: 'btn-primary' },
-    { texto: '➕ Agregar Persona', ruta: '/personas/agregar', estilo: 'btn-success' }
+    { texto: 'Lista de Personas', icono: 'bi-people', ruta: '/personas', estilo: 'btn-primary' },
+    { texto: 'Agregar Persona', icono: 'bi-person-plus', ruta: '/personas/agregar', estilo: 'btn-success' }
   ];
 
   botonesIngresos = [
-    { texto: '💰 Listar Ingresos', ruta: '/ingresos', estilo: 'btn-info' },
-    { texto: '➕ Agregar Ingreso', ruta: '/ingresos/agregar', estilo: 'btn-warning' }
+    { texto: 'Lista de Ingresos', icono: 'bi-cash-coin', ruta: '/ingresos', estilo: 'btn-info' },
+    { texto: 'Agregar Ingreso', icono: 'bi-plus-circle', ruta: '/ingresos/agregar', estilo: 'btn-warning' }
   ];
 
   botonesGastos = [
-    { texto: '📉 Listar Gastos', ruta: '/gastos', estilo: 'btn-danger' },
-    { texto: '➕ Agregar Gasto', ruta: '/gastos/agregar', estilo: 'btn-secondary' }
+    { texto: 'Lista de Gastos', icono: 'bi-cart-x', ruta: '/gastos', estilo: 'btn-danger' },
+    { texto: 'Agregar Gasto', icono: 'bi-plus-circle', ruta: '/gastos/agregar', estilo: 'btn-secondary' }
+  ];
+
+  botonesBalance = [
+    { texto: 'Ver Balance Financiero', icono: 'bi-bar-chart-line', ruta: '/balance', estilo: 'btn-dark' }
   ];
 }

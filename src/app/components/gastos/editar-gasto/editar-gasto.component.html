@@ -1,10 +1,4 @@
 <div class="container mt-4">
-  <app-botones 
-  titulo="Volver a lista de gastos"
-  [botones]="[
-    { texto: 'lista de gastos', ruta: '/gastos', estilo: 'btn-danger' }
-  ]">
-</app-botones>
 
     <h2>Editar Gasto</h2>
   
@@ -34,11 +28,13 @@
       </div>
   
       <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-      <app-botones 
-       [botones]="[
-     { texto: 'cancelar', ruta: '/gastos', estilo: 'btn-secondary' }
-       ]">
-        </app-botones>
+     
     </form>
+    <app-botones 
+    [botones]="[
+      { texto: 'lista de gastos',icono: 'bi bi-arrow-return-left', ruta: '/gastos', estilo: 'btn-danger' }
+    ]">
+  </app-botones>
+  
   </div>
   
