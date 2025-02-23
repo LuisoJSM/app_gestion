@@ -8,13 +8,13 @@ import { BotonesComponent } from '../../botones/botones.component';
 
 @Component({
   selector: 'app-agregar-ingreso',
-  imports: [CommonModule, ReactiveFormsModule, BotonesComponent], // ✅ Importamos módulos necesarios
+  imports: [CommonModule, ReactiveFormsModule, BotonesComponent],
   templateUrl: './agregar-ingreso.component.html',
   styleUrls: ['./agregar-ingreso.component.scss'],
 })
 export class AgregarIngresoComponent implements OnInit {
   formularioIngreso: FormGroup;
-  listaPersonas: any[] = []; // ✅ Almacenamos las personas disponibles
+  listaPersonas: any[] = []; //Almaceno las personas que tengo disponibles
 
   constructor(
     private fb: FormBuilder,
@@ -25,18 +25,18 @@ export class AgregarIngresoComponent implements OnInit {
       descripcion: ['', Validators.required],
       monto: ['', [Validators.required, Validators.min(0.01)]],
       fuente: ['', Validators.required],
-      persona_id: ['', Validators.required], // ✅ Campo para asociar el ingreso a una persona
+      persona_id: ['', Validators.required],
     });
   }
 
   ngOnInit() {
-    this.cargarPersonas(); // ✅ Cargar la lista de personas al iniciar el componente
+    this.cargarPersonas(); // Cargo la lista de personas
   }
 
   cargarPersonas() {
     this.apiService.obtenerPersonas().subscribe(
       (personas) => {
-        this.listaPersonas = personas; // ✅ Guardamos las personas en la lista
+        this.listaPersonas = personas; // Guardo la lista de personas
       },
       (error) => {
         console.error('Error al obtener personas:', error);
@@ -48,10 +48,10 @@ export class AgregarIngresoComponent implements OnInit {
     if (this.formularioIngreso.valid) {
       this.apiService.agregarIngreso(this.formularioIngreso.value).subscribe(() => {
         alert('Ingreso registrado correctamente');
-        this.navegador.navigate(['/ingresos']); // ✅ Redirigir a la lista de ingresos
+        this.navegador.navigate(['/ingresos']);
       });
     } else {
-      alert('Por favor, complete todos los campos correctamente.');
+      alert('Te faltan campos por completar.');
     }
   }
 }

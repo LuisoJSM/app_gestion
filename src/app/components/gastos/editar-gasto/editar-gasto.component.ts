@@ -14,8 +14,8 @@ import { BotonesComponent } from '../../botones/botones.component';
 })
 export class EditarGastoComponent implements OnInit {
   formularioGasto: FormGroup;
-  listaPersonas: any[] = []; // ✅ Lista de personas disponibles
-  idGasto!: number; // ✅ ID del gasto que se va a editar
+  listaPersonas: any[] = [];
+  idGasto!: number;
 
   constructor(
     private fb: FormBuilder,
@@ -27,20 +27,20 @@ export class EditarGastoComponent implements OnInit {
       descripcion: ['', Validators.required],
       monto: ['', [Validators.required, Validators.min(0.01)]],
       categoria: ['', Validators.required],
-      persona_id: ['', Validators.required], // ✅ Persona a la que pertenece el gasto
+      persona_id: ['', Validators.required],
     });
   }
 
   ngOnInit() {
-    this.idGasto = Number(this.ruta.snapshot.paramMap.get('id')); // ✅ Obtener ID del gasto desde la URL
-    this.cargarPersonas(); // ✅ Cargar lista de personas
-    this.cargarGasto(); // ✅ Cargar datos del gasto
+    this.idGasto = Number(this.ruta.snapshot.paramMap.get('id'));
+    this.cargarPersonas();
+    this.cargarGasto();
   }
 
   cargarPersonas() {
     this.apiService.obtenerPersonas().subscribe(
       (personas) => {
-        this.listaPersonas = personas; // ✅ Guardamos las personas en la lista
+        this.listaPersonas = personas;
       },
       (error) => {
         console.error('Error al obtener personas:', error);
@@ -51,7 +51,7 @@ export class EditarGastoComponent implements OnInit {
   cargarGasto() {
     this.apiService.obtenerGastoPorId(this.idGasto).subscribe(
       (gasto) => {
-        this.formularioGasto.patchValue(gasto); // ✅ Llenamos el formulario con los datos obtenidos
+        this.formularioGasto.patchValue(gasto);
       },
       (error) => {
         console.error('Error al obtener el gasto:', error);
@@ -63,7 +63,7 @@ export class EditarGastoComponent implements OnInit {
     if (this.formularioGasto.valid) {
       this.apiService.actualizarGasto(this.idGasto, this.formularioGasto.value).subscribe(() => {
         alert('Gasto actualizado correctamente');
-        this.navegador.navigate(['/gastos']); // ✅ Redirigir a la lista de gastos
+        this.navegador.navigate(['/gastos']);
       });
     } else {
       alert('Por favor, complete todos los campos correctamente.');

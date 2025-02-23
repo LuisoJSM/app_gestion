@@ -25,18 +25,18 @@ export class AgregarGastoComponent implements OnInit {
       descripcion: ['', Validators.required],
       monto: ['', [Validators.required, Validators.min(0.01)]],
       categoria: ['', Validators.required],
-      persona_id: ['', Validators.required], // ✅ Campo para asociar el gasto a una persona
+      persona_id: ['', Validators.required],
     });
   }
 
   ngOnInit() {
-    this.cargarPersonas(); // ✅ Cargar la lista de personas al iniciar el componente
+    this.cargarPersonas();
   }
 
   cargarPersonas() {
     this.apiService.obtenerPersonas().subscribe(
       (personas) => {
-        this.listaPersonas = personas; // ✅ Guardamos las personas en la lista
+        this.listaPersonas = personas; 
       },
       (error) => {
         console.error('Error al obtener personas:', error);
@@ -48,7 +48,7 @@ export class AgregarGastoComponent implements OnInit {
     if (this.formularioGasto.valid) {
       this.apiService.agregarGasto(this.formularioGasto.value).subscribe(() => {
         alert('Gasto registrado correctamente');
-        this.navegador.navigate(['/gastos']); // ✅ Redirigir a la lista de gastos
+        this.navegador.navigate(['/gastos']);
       });
     } else {
       alert('Faltan campos por completar');
